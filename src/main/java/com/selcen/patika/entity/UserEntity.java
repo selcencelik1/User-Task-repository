@@ -1,5 +1,6 @@
 package com.selcen.patika.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.*;
@@ -19,5 +20,6 @@ public class UserEntity {
     private String email;
 
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     private List<Task> taskList;
 }
