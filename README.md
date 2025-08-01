@@ -7,7 +7,7 @@ Each user can have multiple tasks, and each task has a status defined by an `enu
 
 ## 🚀 Features
 
-- ✅ Create users
+- ✅ Create users,delete users
 - ✅ Assign multiple tasks to each user
 - ✅ Task status management using `enum` (TODO, IN_PROGRESS, TEST, DONE)
 - ✅ Filter tasks by status (e.g., `/tasks?status=TODO`)
@@ -39,3 +39,26 @@ src/
 ├── repository/        # JPA repositories
 └── enumer/            # TaskStatus enum (TODO, IN_PROGRESS, TEST, DONE)
 ├── exception/         # GlobalExceptionHandler for incorrect entry 
+
+## 📘 API Documentation (Swagger UI)
+
+This project includes automatically generated API documentation using **Swagger UI** via the SpringDoc OpenAPI library.
+
+Once the application is running, you can access the documentation here:
+
+🔗 **Swagger UI:**  
+[http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+
+🔗 **Raw OpenAPI JSON:**  
+[http://localhost:8080/v3/api-docs](http://localhost:8080/v3/api-docs)
+
+### 🛠️ How to Enable Swagger in this project
+
+Swagger is already configured by adding the following Maven dependency:
+
+```xml
+<dependency>
+  <groupId>org.springdoc</groupId>
+  <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+  <version>2.2.0</version>
+</dependency>
