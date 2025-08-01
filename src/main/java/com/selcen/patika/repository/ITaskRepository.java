@@ -6,7 +6,7 @@ import java.util.List;
 import com.selcen.patika.enumer.TaskStatus;
 
 
-public interface TaskRepository extends JpaRepository<Task,Long> {
+public interface ITaskRepository extends JpaRepository<Task,Long> {
     List<Task> findByUserId(Long userId);
     List<Task> findByStatus(TaskStatus status);
 }

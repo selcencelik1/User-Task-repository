@@ -4,13 +4,10 @@ package com.selcen.patika.service;
 import com.selcen.patika.dto.*;
 import com.selcen.patika.entity.UserEntity;
 import com.selcen.patika.repository.IUserRepository;
-import com.selcen.patika.repository.TaskRepository;
+import com.selcen.patika.repository.ITaskRepository;
 import com.selcen.patika.entity.Task;
-import org.apache.catalina.valves.HealthCheckValve;
 import org.springframework.beans.*;
-import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import java.util.*;
@@ -19,7 +16,7 @@ import com.selcen.patika.enumer.TaskStatus;
 public class TaskService {
 
     @Autowired
-    private TaskRepository taskRepository;
+    private ITaskRepository taskRepository;
     @Autowired
     private IUserRepository userRepository;
 
