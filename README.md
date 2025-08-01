@@ -7,7 +7,8 @@ Each user can have multiple tasks, and each task has a status defined by an `enu
 
 ## 🚀 Features
 
-- ✅ Create users,delete users
+- ✅ Create users
+- ✅ Create,delete tasks
 - ✅ Assign multiple tasks to each user
 - ✅ Task status management using `enum` (TODO, IN_PROGRESS, TEST, DONE)
 - ✅ Filter tasks by status (e.g., `/tasks?status=TODO`)
