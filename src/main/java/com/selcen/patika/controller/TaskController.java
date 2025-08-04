@@ -21,12 +21,12 @@ public class TaskController {
     private TaskService taskService;
 
 
-    @PostMapping("/{id}")
+    @PostMapping("/byUserId/{id}")
     public ResponseEntity<TaskDtoR> createTask(@PathVariable Long id,@RequestBody @Valid TaskDtoIU taskDtoIU){
         return taskService.addTaskToUser(id,taskDtoIU);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/byUserId/{id}")
     public ResponseEntity<List<TaskDtoR>> getTasksByUserId(@PathVariable Long id){
         return taskService.getTasksByUserId(id);
     }
