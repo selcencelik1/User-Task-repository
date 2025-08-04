@@ -7,6 +7,7 @@ import com.selcen.patika.dto.UserDtoR;
 import com.selcen.patika.enumer.TaskStatus;
 import com.selcen.patika.service.TaskService;
 import jakarta.validation.Valid;
+import org.hibernate.annotations.DialectOverride;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,6 +36,21 @@ public class TaskController {
         if(status!= null) return taskService.getTasksByStatus(status);
         return taskService.getAllTasks();
         }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<TaskDtoR> deleteTaskById(@PathVariable Long id){
+        return taskService.deleteTaskById(id);
+    }
+
+    @DeleteMapping
+    public ResponseEntity<List<TaskDtoR>> deleteAllTasks(){
+        return taskService.deleteAllTasks();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<TaskDtoR> updateTask(@PathVariable Long id,@RequestBody TaskDtoIU taskDtoIU ){
+        return taskService.updateTask(id,taskDtoIU);
+    }
 
 }
 
