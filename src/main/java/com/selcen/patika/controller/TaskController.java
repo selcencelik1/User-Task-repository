@@ -27,11 +27,17 @@ public class TaskController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<List<TaskDtoR>> getTasks(@PathVariable Long id){
+    public ResponseEntity<List<TaskDtoR>> getTaskByUserId(@PathVariable Long id){
         return taskService.getTasksByUserId(id);
     }
 
     @GetMapping
+    public ResponseEntity<List<TaskDtoR>> getAllTasks(){
+        return taskService.getAllTasks();
+    }
+
+
+    @GetMapping("/byStatus")
     public ResponseEntity<List<TaskDtoR>> getTasksByStatus(@RequestParam(required = false) TaskStatus status){
         if(status!= null) return taskService.getTasksByStatus(status);
         return taskService.getAllTasks();

@@ -53,14 +53,18 @@ public class TaskService {
         task.setUser(user);
         taskRepository.save(task);
         BeanUtils.copyProperties(task,taskDtoR);
+        taskDtoR.setUserId(task.getUser().getId());
         return ResponseEntity.ok(taskDtoR);
     }
+
+
     public ResponseEntity<List<TaskDtoR>> getTasksByUserId(Long id){
         List<Task> list = taskRepository.findByUserId(id);
         List<TaskDtoR> result = new ArrayList<>();
         for (Task t : list){
             TaskDtoR taskDtoR = new TaskDtoR();
             BeanUtils.copyProperties(t,taskDtoR);
+            taskDtoR.setUserId(t.getUser().getId());
             result.add(taskDtoR);
         }
         return ResponseEntity.ok(result);
@@ -75,6 +79,7 @@ public class TaskService {
         for(Task t: task){
             TaskDtoR taskDtoR = new TaskDtoR();
             BeanUtils.copyProperties(t,taskDtoR);
+            taskDtoR.setUserId(t.getUser().getId());
             result.add(taskDtoR);
         }
         return ResponseEntity.ok(result);
@@ -86,6 +91,7 @@ public class TaskService {
         for (Task t : l ){
             TaskDtoR taskDtoR = new TaskDtoR();
             BeanUtils.copyProperties(t,taskDtoR);
+            taskDtoR.setUserId(t.getUser().getId());
             result.add(taskDtoR);
         }
         return ResponseEntity.ok(result);
@@ -97,6 +103,7 @@ public class TaskService {
         taskRepository.deleteById(id);
         TaskDtoR taskDtoR = new TaskDtoR();
         BeanUtils.copyProperties(task, taskDtoR);
+        taskDtoR.setUserId(id);
         return ResponseEntity.ok(taskDtoR);
     }
 
@@ -114,6 +121,7 @@ public class TaskService {
         task.setStatus(taskDtoIU.getStatus());
         taskRepository.save(task);
         BeanUtils.copyProperties(task,taskDtoR);
+        taskDtoR.setUserId(task.getUser().getId());
         return ResponseEntity.ok(taskDtoR);
 
     }

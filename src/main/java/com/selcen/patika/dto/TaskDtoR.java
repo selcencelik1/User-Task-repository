@@ -12,4 +12,6 @@ public class TaskDtoR {
     private String description;
 
     private TaskStatus status;
+
+    private Long userId;
 }
