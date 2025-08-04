@@ -27,7 +27,7 @@ public class TaskController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<List<TaskDtoR>> getTaskByUserId(@PathVariable Long id){
+    public ResponseEntity<List<TaskDtoR>> getTasksByUserId(@PathVariable Long id){
         return taskService.getTasksByUserId(id);
     }
 
