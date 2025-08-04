@@ -8,6 +8,7 @@ import com.selcen.patika.repository.ITaskRepository;
 import com.selcen.patika.entity.Task;
 import org.springframework.beans.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import java.util.*;
@@ -89,4 +90,34 @@ public class TaskService {
         }
         return ResponseEntity.ok(result);
     }
+
+    public ResponseEntity<TaskDtoR> deleteTaskById(Long id) {
+        Task task = taskRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("No user found"));
+        taskRepository.deleteById(id);
+        TaskDtoR taskDtoR = new TaskDtoR();
+        BeanUtils.copyProperties(task, taskDtoR);
+        return ResponseEntity.ok(taskDtoR);
+    }
+
+    public ResponseEntity<List<TaskDtoR>> deleteAllTasks(){
+        taskRepository.deleteAll();
+        return getAllTasks();
+    }
+
+    public ResponseEntity<TaskDtoR> updateTask(Long id,TaskDtoIU taskDtoIU){
+        TaskDtoR taskDtoR = new TaskDtoR();
+        Task task = taskRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("No user found"));
+        task.setTitle(taskDtoIU.getTitle());
+        task.setDescription(taskDtoIU.getDescription());
+        task.setStatus(taskDtoIU.getStatus());
+        taskRepository.save(task);
+        BeanUtils.copyProperties(task,taskDtoR);
+        return ResponseEntity.ok(taskDtoR);
+
+    }
+
+
+
 }
