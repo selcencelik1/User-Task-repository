@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<h1>🗂 Task Manager</h1>
+
+<div>
+    <h2>👥 Users</h2>
+    <ul id="userList"></ul>
+</div>
+
+<div class="form">
+    <input type="text" id="title" placeholder="Title" />
+    <input type="text" id="description" placeholder="Description" />
+    <select id="status">
+        <option value="TODO">TODO</option>
+        <option value="IN_PROGRESS">IN_PROGRESS</option>
+        <option value="DONE">DONE</option>
+    </select>
+    <input type="number" id="userId" placeholder="User ID" />
+    <button onclick="addTask()">Add Task</button>
+</div>
+<div class="form">
+    <h2>👤 Add New User</h2>
+    <input type="text" id="firstName" placeholder="First Name" />
+    <input type="text" id="email" placeholder="Email" />
+    <button onclick="addUser()">Add User</button>
+</div>
+
+<div class="filter">
+    <label>Filter:</label>
+    <select id="filterStatus" onchange="filterTasks()">
+        <option value="">All</option>
+        <option value="TODO">TODO</option>
+        <option value="IN_PROGRESS">IN_PROGRESS</option>
+        <option value="DONE">DONE</option>
+    </select>
+</div>
+
+
+<ul id="taskList"></ul>
+
+<script src="script.js"></script>
+</body>
+</html>
