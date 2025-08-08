@@ -48,10 +48,10 @@ This project includes automatically generated API documentation using **Swagger 
 Once the application is running, you can access the documentation here:
 
 🔗 **Swagger UI:**  
-[http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+http://localhost:8080/swagger-ui.html
 
 🔗 **Raw OpenAPI JSON:**  
-[http://localhost:8080/v3/api-docs](http://localhost:8080/v3/api-docs)
+http://localhost:8080/v3/api-docs
 
 ### 🛠️ How to Enable Swagger in this project
 
